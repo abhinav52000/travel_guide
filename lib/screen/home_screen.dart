@@ -93,25 +93,35 @@ class _HomeScreenState extends State<HomeScreen>
                       const SizedBox(height: 10),
                       Hero(
                         tag: 'eiffelTower',
-                        child: Text(
-                          'Eiffel Tower',
-                          style: AppTextStyle.headingStyle,
+                        child: DefaultTextStyle(
+                          style: const TextStyle(
+                            decoration: TextDecoration.none,
+                          ),
+                          child: Text(
+                            'Eiffel Tower',
+                            style: AppTextStyle.headingStyle,
+                          ),
                         ),
                       ),
                       const SizedBox(height: 10),
                       Hero(
                         tag: 'location',
-                        child: Row(
-                          children: [
-                            Icon(
-                              Icons.location_on_outlined,
-                              color: AppColor.white,
-                            ),
-                            Text(
-                              'Paris, France',
-                              style: AppTextStyle.subHeadingTextStyle,
-                            ),
-                          ],
+                        child: DefaultTextStyle(
+                          style: const TextStyle(
+                            decoration: TextDecoration.none,
+                          ),
+                          child: Row(
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                color: AppColor.white,
+                              ),
+                              Text(
+                                'Paris, France',
+                                style: AppTextStyle.subHeadingTextStyle,
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(height: 20),

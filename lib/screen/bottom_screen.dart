@@ -68,22 +68,34 @@ class _DetailScreenState extends State<DetailScreen> {
                         children: [
                           Hero(
                             tag: 'eiffelTower',
-                            child: Text('Eiffel Tower',
-                                style: AppTextStyle.headingStyle),
+                            child: DefaultTextStyle(
+                              style: const TextStyle(
+                                decoration: TextDecoration.none,
+                              ),
+                              child: Text(
+                                'Eiffel Tower',
+                                style: AppTextStyle.headingStyle,
+                              ),
+                            ),
                           ),
                           Hero(
                             tag: 'location',
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.location_on_outlined,
-                                  color: AppColor.white,
-                                ),
-                                Text(
-                                  'Paris, France',
-                                  style: AppTextStyle.subHeadingTextStyle,
-                                ),
-                              ],
+                            child: DefaultTextStyle(
+                              style: const TextStyle(
+                                decoration: TextDecoration.none,
+                              ),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.location_on_outlined,
+                                    color: AppColor.white,
+                                  ),
+                                  Text(
+                                    'Paris, France',
+                                    style: AppTextStyle.subHeadingTextStyle,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -102,7 +114,9 @@ class _DetailScreenState extends State<DetailScreen> {
                     color: AppColor.white,
                   ),
                   constraints: BoxConstraints.tightFor(
-                      height: size.height * 0.8, width: size.width),
+                    height: size.height * 0.8,
+                    width: size.width,
+                  ),
                   child: Padding(
                     padding: const EdgeInsets.all(16),
                     child: SingleChildScrollView(
@@ -198,37 +212,40 @@ class _DetailScreenState extends State<DetailScreen> {
       ),
       floatingActionButtonLocation:
           FloatingActionButtonLocation.miniCenterDocked,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.all(10),
-        child: RawMaterialButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-          constraints: BoxConstraints.tightFor(
-            height: size.height * 0.07,
-            width: size.width,
-          ),
-          fillColor: AppColor.bgColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Icon(Icons.flight_takeoff, color: AppColor.white),
-              Text(
-                'Search Flights',
-                style: AppTextStyle.bodyText2Style,
-              ),
-              Chip(
-                label: Text('ON SALE', style: AppTextStyle.bodyText2Style),
-                backgroundColor: AppColor.green,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(24),
+      floatingActionButton: Hero(
+        tag: 'searchButton',
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: RawMaterialButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+            constraints: BoxConstraints.tightFor(
+              height: size.height * 0.07,
+              width: size.width,
+            ),
+            fillColor: AppColor.bgColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Icon(Icons.flight_takeoff, color: AppColor.white),
+                Text(
+                  'Search Flights',
+                  style: AppTextStyle.bodyText2Style,
                 ),
-              ),
-            ],
+                Chip(
+                  label: Text('ON SALE', style: AppTextStyle.bodyText2Style),
+                  backgroundColor: AppColor.green,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
