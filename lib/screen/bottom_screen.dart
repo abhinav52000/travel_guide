@@ -35,8 +35,8 @@ class _DetailScreenState extends State<DetailScreen> {
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   @override
@@ -67,17 +67,22 @@ class _DetailScreenState extends State<DetailScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Hero(
-                              tag: 'eiffelTower',
-                              child: Text('Eiffel Tower',
-                                  style: AppTextStyle.headingStyle)),
+                            tag: 'eiffelTower',
+                            child: Text('Eiffel Tower',
+                                style: AppTextStyle.headingStyle),
+                          ),
                           Hero(
                             tag: 'location',
                             child: Row(
                               children: [
-                                Icon(Icons.location_on_outlined,
-                                    color: AppColor.white),
-                                Text('Paris, France',
-                                    style: AppTextStyle.subHeadingTextStyle),
+                                Icon(
+                                  Icons.location_on_outlined,
+                                  color: AppColor.white,
+                                ),
+                                Text(
+                                  'Paris, France',
+                                  style: AppTextStyle.subHeadingTextStyle,
+                                ),
                               ],
                             ),
                           ),
@@ -114,9 +119,11 @@ class _DetailScreenState extends State<DetailScreen> {
                             ),
                           ),
                           const SizedBox(height: 15),
-                          Text(eiffielTower,
-                              style: AppTextStyle.bodyTextStyle,
-                              textAlign: TextAlign.justify),
+                          Text(
+                            eiffielTower,
+                            style: AppTextStyle.bodyTextStyle,
+                            textAlign: TextAlign.justify,
+                          ),
                           const SizedBox(height: 15),
                           Stack(
                             children: [
@@ -133,23 +140,26 @@ class _DetailScreenState extends State<DetailScreen> {
                                 ),
                               ),
                               IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      if (play) {
-                                        _controller.pause();
-                                        play = false;
-                                      } else {
-                                        _controller.play();
-                                        play = true;
-                                      }
-                                    });
-                                  },
-                                  icon: const Icon(Icons.play_arrow))
+                                onPressed: () {
+                                  setState(() {
+                                    if (play) {
+                                      _controller.pause();
+                                      play = false;
+                                    } else {
+                                      _controller.play();
+                                      play = true;
+                                    }
+                                  });
+                                },
+                                icon: const Icon(Icons.play_arrow),
+                              ),
                             ],
                           ),
                           const SizedBox(height: 5),
-                          Text('Top Sights',
-                              style: AppTextStyle.buttonTextStyle),
+                          Text(
+                            'Top Sights',
+                            style: AppTextStyle.buttonTextStyle,
+                          ),
                           const SizedBox(height: 5),
                           Row(
                             children: [
@@ -172,10 +182,10 @@ class _DetailScreenState extends State<DetailScreen> {
                                   maxLines: 20,
                                   textAlign: TextAlign.justify,
                                 ),
-                              )
+                              ),
                             ],
                           ),
-                          const SizedBox(height: 100)
+                          const SizedBox(height: 100),
                         ],
                       ),
                     ),
@@ -191,31 +201,36 @@ class _DetailScreenState extends State<DetailScreen> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(10),
         child: RawMaterialButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
-            constraints: BoxConstraints.tightFor(
-                height: size.height * 0.07, width: size.width),
-            fillColor: AppColor.bgColor,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Icon(Icons.flight_takeoff, color: AppColor.white),
-                Text(
-                  'Search Flights',
-                  style: AppTextStyle.bodyText2Style,
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+          constraints: BoxConstraints.tightFor(
+            height: size.height * 0.07,
+            width: size.width,
+          ),
+          fillColor: AppColor.bgColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(Icons.flight_takeoff, color: AppColor.white),
+              Text(
+                'Search Flights',
+                style: AppTextStyle.bodyText2Style,
+              ),
+              Chip(
+                label: Text('ON SALE', style: AppTextStyle.bodyText2Style),
+                backgroundColor: AppColor.green,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(24),
                 ),
-                Chip(
-                  label: Text('ON SALE', style: AppTextStyle.bodyText2Style),
-                  backgroundColor: AppColor.green,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(24)),
-                ),
-              ],
-            )),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
